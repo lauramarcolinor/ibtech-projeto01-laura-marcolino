@@ -1,0 +1,108 @@
+const ceuEstrelado = document.querySelector('.ceu-estrelado');
+
+function criarEstrelas() {
+    ceuEstrelado.innerHTML = "";
+
+    const alturaPagina = document.documentElement.scrollHeight;
+
+    ceuEstrelado.style.height = alturaPagina + "px";
+
+    for (let i = 0; i < 90; i++) {
+        const estrela = document.createElement('span');
+
+        estrela.classList.add('estrela');
+
+        estrela.style.left = Math.random() * 100 + '%';
+        estrela.style.top = Math.random() * alturaPagina + 'px';
+
+        estrela.style.animationDelay = Math.random() * 5 + 's';
+        estrela.style.animationDuration = 3 + Math.random() * 4 + 's';
+
+        ceuEstrelado.appendChild(estrela);
+    }
+}
+
+criarEstrelas();
+
+window.addEventListener('resize', criarEstrelas);
+
+
+const botaoCopiarEmail = document.querySelector('#copiar-email');
+const mensagemCopiado = document.querySelector('#mensagem-copiado');
+
+if (botaoCopiarEmail) {
+    botaoCopiarEmail.addEventListener('click', function () {
+        navigator.clipboard.writeText('lauramarcolinog@gmail.com');
+
+        mensagemCopiado.textContent = 'Email copiado!';
+
+        setTimeout(function () {
+            mensagemCopiado.textContent = '';
+        }, 2000);
+    });
+}
+
+const botaoTema = document.querySelector('#botao-tema');
+
+function atualizarTextoBotaoTema() {
+    if (!botaoTema) {
+        return;
+    }
+
+    if (document.body.classList.contains('tema-escuro')) {
+        botaoTema.textContent = 'Tema claro';
+    } else {
+        botaoTema.textContent = 'Tema escuro';
+    }
+}
+
+function aplicarTemaInicial() {
+    const temaSalvo = localStorage.getItem('tema');
+    const sistemaPrefereEscuro = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (temaSalvo === 'escuro') {
+        document.body.classList.add('tema-escuro');
+    } else if (temaSalvo === 'claro') {
+        document.body.classList.remove('tema-escuro');
+    } else if (sistemaPrefereEscuro) {
+        document.body.classList.add('tema-escuro');
+    }
+
+    atualizarTextoBotaoTema();
+}
+
+if (botaoTema) {
+    aplicarTemaInicial();
+
+    botaoTema.addEventListener('click', function () {
+        document.body.classList.toggle('tema-escuro');
+
+        if (document.body.classList.contains('tema-escuro')) {
+            localStorage.setItem('tema', 'escuro');
+        } else {
+            localStorage.setItem('tema', 'claro');
+        }
+
+        atualizarTextoBotaoTema();
+    });
+}
+
+const secoesAnimadas = document.querySelectorAll('.animar-section');
+
+const observador = new IntersectionObserver(function (entradas) {
+    entradas.forEach(function (entrada) {
+        if (entrada.isIntersecting) {
+            entrada.target.classList.add('aparecer');
+        }
+    });
+}, {
+    threshold: 0.2
+});
+
+secoesAnimadas.forEach(function (secao) {
+    observador.observe(secao);
+});
+/* pra fazer que o emial copiado */
+/*numero de estrelas e i e porcentagem de aparece e animacao e duracao das estrals espalha as estrelas pelo site inteiro: home, sobre, projetos, vídeo e footer.*/
+/* botao tema escuro*/
+/* animacoes de descer/rolagem*/
