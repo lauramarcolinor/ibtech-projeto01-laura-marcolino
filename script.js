@@ -1,6 +1,10 @@
 const ceuEstrelado = document.querySelector('.ceu-estrelado');
 
 function criarEstrelas() {
+    if (!ceuEstrelado) {
+        return;
+    }
+
     ceuEstrelado.innerHTML = "";
 
     const alturaPagina = document.documentElement.scrollHeight;
@@ -27,10 +31,12 @@ criarEstrelas();
 window.addEventListener('resize', criarEstrelas);
 
 
+/* COPIAR E-MAIL */
+
 const botaoCopiarEmail = document.querySelector('#copiar-email');
 const mensagemCopiado = document.querySelector('#mensagem-copiado');
 
-if (botaoCopiarEmail) {
+if (botaoCopiarEmail && mensagemCopiado) {
     botaoCopiarEmail.addEventListener('click', function () {
         navigator.clipboard.writeText('lauramarcolinog@gmail.com');
 
@@ -41,6 +47,9 @@ if (botaoCopiarEmail) {
         }, 2000);
     });
 }
+
+
+/* TEMA CLARO / ESCURO */
 
 const botaoTema = document.querySelector('#botao-tema');
 
@@ -87,21 +96,36 @@ if (botaoTema) {
     });
 }
 
+
+/* ANIMAÇÃO AO ROLAR A PÁGINA */
 const secoesAnimadas = document.querySelectorAll('.animar-section');
 
-const observador = new IntersectionObserver(function (entradas) {
-    entradas.forEach(function (entrada) {
-        if (entrada.isIntersecting) {
-            entrada.target.classList.add('aparecer');
-        }
+if ('IntersectionObserver' in window) {
+    secoesAnimadas.forEach(function (secao) {
+        secao.classList.add('animacao-pronta');
     });
-}, {
-    threshold: 0.2
-});
 
-secoesAnimadas.forEach(function (secao) {
-    observador.observe(secao);
-});
+    const observador = new IntersectionObserver(function (entradas) {
+        entradas.forEach(function (entrada) {
+            if (entrada.isIntersecting) {
+                entrada.target.classList.add('aparecer');
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    secoesAnimadas.forEach(function (secao) {
+        observador.observe(secao);
+    });
+} else {
+    secoesAnimadas.forEach(function (secao) {
+        secao.classList.add('aparecer');
+    });
+}
+
+
+/* MENU MOBILE */
 
 const botaoMenu = document.querySelector('#botao-menu');
 const menuMobile = document.querySelector('#menu-mobile');
@@ -135,9 +159,25 @@ if (botaoMenu && menuMobile) {
             botaoMenu.setAttribute('aria-label', 'Abrir menu');
         }
     });
+
+    document.addEventListener('click', function (event) {
+        if (!menuMobile.classList.contains('ativo')) {
+            return;
+        }
+
+        const clicouNoMenu = menuMobile.contains(event.target);
+        const clicouNoBotao = botaoMenu.contains(event.target);
+
+        if (!clicouNoMenu && !clicouNoBotao) {
+            menuMobile.classList.remove('ativo');
+            botaoMenu.textContent = '☰';
+            botaoMenu.setAttribute('aria-label', 'Abrir menu');
+        }
+    });
 }
 /* pra fazer que o emial copiado */
 /*numero de estrelas e i e porcentagem de aparece e animacao e duracao das estrals espalha as estrelas pelo site inteiro: home, sobre, projetos, vídeo e footer.*/
 /* botao tema escuro*/
 /* animacoes de descer/rolagem*/
 /* menu mobile de java script */
+/*se o menu está aberto E o clique não foi nem dentro do menu nem no botão de abrir, fecha.-- revisao para ibtech */

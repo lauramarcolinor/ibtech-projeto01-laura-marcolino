@@ -4,7 +4,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+/*pra deixar as cores e tipografia todas com configuracoes gerais, sem precisar alterar um por um  */
 :root {
     --cor-fundo: #f7f7f7;
     --cor-texto: #000000;
@@ -19,6 +19,17 @@
 
     --cor-texto-footer: #ffffff;
     --cor-texto-suave: #f1e7d8;
+
+    /* tipografia */
+    --fs-xs: 0.75rem;        /* 12px */
+    --fs-sm: 0.875rem;       /* 14px */
+    --fs-base: 1rem;         /* 16px */
+    --fs-md: 1.125rem;       /* 18px */
+    --fs-lg: 1.375rem;       /* 22px */
+    --fs-overlay: 1.5rem;    /* 24px */
+    --fs-xl: 2rem;           /* 32px */
+    --fs-title-md: 2.25rem;  /* 36px */
+    --fs-xxl: 2.625rem;      /* 42px */
 }
 /* cores* tema noturno*/
 body.tema-escuro {
@@ -39,14 +50,15 @@ body.tema-escuro {
 
 /* defini a cor o fundo e fonte so site geraldd*/
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f7f7f7;
-    color: #000;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    position: relative;
 }
 
 /* Header cabecalho e coloca espaco em cima e em baixo */
 header {
-    background-color: #fff;
+    background-color: var(--cor-header);
     padding: 20px 0;
 }
 
@@ -82,11 +94,10 @@ header .interface {
 /* Nome da logo */
 .logo a {
     text-decoration: none;
-    color: #000;
-    font-size: 22px;
+    color: var(--cor-texto);
+    font-size: var(--fs-lg);
     font-weight: 700;
 }
-
 /* flex serve sempre pra deixar eles lado a lado*/
 .menu-desktop ul {
     list-style: none;
@@ -97,14 +108,14 @@ header .interface {
 /* Links do menu */
 .menu-desktop a {
     text-decoration: none;
-    color: #000;
-    font-size: 16px;
+    color: var(--cor-texto);
+    font-size: var(--fs-base);
     font-weight: 700;
 }
 
 /* Efeito ao passar o mouse no menu e mudar pra cor que deseja*/
 .menu-desktop a:hover {
-    color:  #9c805c;
+    color: var(--cor-marrom-hover);
 }
 
 /* incicio do site e esse min height altura em relacao ao resto   */
@@ -114,7 +125,7 @@ header .interface {
     align-items: flex-start;
     justify-content: center;
     padding-top: 100px;
-    background-color: #f7f7f7;
+    background-color: var(--cor-fundo);
 }
 
 /* Centraliza o conteúdo do topo */
@@ -130,7 +141,7 @@ header .interface {
 
 /* Título principal */
 .txt-topo-site h1 {
-    font-size: 42px;
+    font-size: var(--fs-xxl);
     font-weight: 700;
     letter-spacing: 6px;
     text-transform: uppercase;
@@ -139,30 +150,31 @@ header .interface {
 
 /* Ponto preto no final do título vibe */
 .txt-topo-site h1 span {
-    color: #b89b72;
+    color: var(--cor-marrom);
 }
 
 /* aumenta o texto abaixo do título e afasta ele do botão.*/
 .responsive-text {
-    font-size: 22px;
+    font-size: var(--fs-lg);
     margin-bottom: 45px;
 }
 
 /* Botão de projetos*/
 .btn-custom {
-    background-color: #b89b72;
-    color: #ffffff;
+    display: inline-block;
+    text-decoration: none;
+    background-color: var(--cor-marrom);
+    color: var(--cor-texto-footer);
     border: none;
     padding: 12px 45px;
     border-radius: 15px;
-    font-size: 22px;
+    font-size: var(--fs-lg);
     font-weight: 700;
     cursor: pointer;
 }
-
 /* Efeito no botão  */
 .btn-custom:hover {
-    background-color:  #9c805c;
+    background-color: var(--cor-marrom-hover);
 }
 
 
@@ -171,7 +183,7 @@ header .interface {
 
 /* seção sobre Mim */
 .sobre {
-    background-color: #f7f7f7;
+    background-color: var(--cor-fundo);
     padding: 80px 0;
 }
 
@@ -183,11 +195,11 @@ header .interface {
 
 /* texto SOBRE MIM */
 .sobre .titulo h2 {
-    font-size: 42px;
+    font-size: var(--fs-xxl);
     font-weight: 700;
     letter-spacing: 6px;
     text-transform: uppercase;
-    color: #000;
+    color: var(--cor-texto);
 }
 
 /* risco embaixo do títul */
@@ -195,7 +207,7 @@ header .interface {
     display: block;
     width: 40px;
     height: 4px;
-    background-color: #b89b72;
+    background-color: var(--cor-marrom);
     margin: 20px auto 0;
     border-radius: 10px;
 }
@@ -222,27 +234,57 @@ header .interface {
 }
 
 /* Título "MUITO PRAZER..." */
-.txt-sobre h2 {
-    font-size: 36px;
+.txt-sobre h3 {
+    font-size: var(--fs-title-md);
     line-height: 1.1;
     font-weight: 700;
     text-transform: uppercase;
     margin-bottom: 30px;
-    color: #000;
+    color: var(--cor-texto);
 }
-
 /* parte colorida do título */
-.txt-sobre h2 span {
-    color: #b89b72;
+.txt-sobre h3 span {
+    display: block;       /* faz o span virar uma "linha" inteira */
+    color: var(--cor-marrom);
 }
 
 /* parágrafos */
 .txt-sobre p {
-    font-size: 18px;
+    font-size: var(--fs-md);
     line-height: 1.7;
     margin-bottom: 18px;
-    color: #000;
+    color: var(--cor-texto);
     text-align: justify;
+}
+
+.habilidades {
+    margin-top: 28px;
+    margin-bottom: 28px;
+}
+
+.habilidades h4 {
+    font-size: var(--fs-md);
+    color: var(--cor-marrom);
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.habilidades ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.habilidades li {
+    background-color: var(--cor-card);
+    color: var(--cor-texto);
+    border: 1px solid var(--cor-marrom);
+    border-radius: 14px;
+    padding: 8px 14px;
+    font-size: var(--fs-sm);
+    font-weight: 600;
 }
 
 /* Botões das redes sociais */
@@ -254,19 +296,19 @@ header .interface {
 
 /* botões cor */
 .btn-social button {
-    background-color: #b89b72;
-    color: #fff;
+    background-color: var(--cor-marrom);
+   color: var(--cor-texto-footer);
     border: none;
     padding: 10px 28px;
     border-radius: 15px;
-    font-size: 18px;
+    font-size: var(--fs-md);
     font-weight: 700;
     cursor: pointer;
 }
 
 /* Efeito quando passa o mouse */
 .btn-social button:hover {
-    background-color: #9c805c;
+    background-color: var(--cor-marrom-hover);
 }
 
 /* parte de projetos agor */
@@ -275,7 +317,7 @@ header .interface {
 
 section.portfolio {
     padding: 80px 4%;
-    background-color: #f7f7f7;
+    background-color: var(--cor-fundo);
 }
 
 
@@ -285,8 +327,8 @@ section.portfolio .interface {
 }
 
 section.portfolio h2.titulo {
-    font-size: 32px;
-    color: #000;
+    font-size: var(--fs-xl);
+    color: var(--cor-texto);
     text-align: center;
     margin-bottom: 50px;
     font-weight: 700;
@@ -307,9 +349,9 @@ section.portfolio .flex {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: #fff;
+    background-color: var(--cor-card);
     border-radius: 25px;
-    border: 2px solid #222;
+    border: 2px solid var(--cor-borda);
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.30);
     position: relative;
     overflow: hidden;
@@ -349,13 +391,13 @@ section.portfolio .flex {
     height: 100%;
 
     background-color: rgba(0, 0, 0, 0.65);
-    color: white;
+    color: var(--cor-texto-footer);
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    font-size: 24px;
+    font-size: var(--fs-overlay);
     font-weight: 700;
 
     opacity: 0;
@@ -385,15 +427,14 @@ section.portfolio .flex {
     }
 
     section.portfolio h2.titulo {
-        font-size: 28px;
+        font-size: var(--fs-xl);
     }
 }
 
 footer {
-    background-color: #4f3b26;
+    background-color: var(--cor-footer);
     padding: 35px 6% 25px;
 }
-
 footer .interface {
     max-width: 1200px;
     margin: 0 auto;
@@ -407,16 +448,16 @@ footer .line-footer .flex {
 }
 
 footer .titulonome h3 {
-    color: #fff;
-    font-size: 22px;
+    color: var(--cor-texto-footer);
+    font-size: var(--fs-lg);
     font-weight: 700;
     letter-spacing: 2px;
     margin-bottom: 8px;
 }
 
 footer .titulonome p {
-    color: #f1e7d8;
-    font-size: 14px;
+    color: var(--cor-texto-suave);
+    font-size: var(--fs-sm);
 }
 
 footer .line-footer.borda {
@@ -433,8 +474,8 @@ footer .line-footer.borda {
 
 .contatos-footer span {
     display: block;
-    color: #c2a276;
-    font-size: 12px;
+    color: var(--cor-marrom);
+    font-size: var(--fs-xs);
     font-weight: 700;
     letter-spacing: 2px;
     margin-bottom: 8px;
@@ -442,8 +483,8 @@ footer .line-footer.borda {
 
 .contatos-footer a,
 .contatos-footer button {
-    color: #fff;
-    font-size: 16px;
+    color: var(--cor-texto-footer);
+    font-size: var(--fs-base);
     text-decoration: none;
     background: none;
     border: none;
@@ -451,15 +492,14 @@ footer .line-footer.borda {
     cursor: pointer;
     font-family: inherit;
 }
-
 .contatos-footer a:hover,
 .contatos-footer button:hover {
-    color: #c2a276;
+    color: var(--cor-marrom);
 }
 
 #mensagem-copiado {
-    color: #c2a276;
-    font-size: 13px;
+    color: var(--cor-marrom);
+    font-size: var(--fs-sm);
     margin-top: 6px;
 }
 
@@ -531,104 +571,16 @@ footer .line-footer.borda {
         opacity: 0.85;
         transform: scale(1.2);
     }
-}
-
-/* TEMA CLARO / ESCURO */
-body {
-    background-color: var(--cor-fundo);
-    color: var(--cor-texto);
-    transition: background-color 0.3s, color 0.3s;
-}
-
-header {
-    background-color: var(--cor-header);
-    transition: background-color 0.3s;
-}
-
-.logo a,
-.menu-desktop a,
-.txt-topo-site h1,
-.responsive-text,
-.sobre .titulo h2,
-.txt-sobre h2,
-.txt-sobre p,
-section.portfolio h2.titulo {
-    color: var(--cor-texto);
-}
-
-.topo-site,
-.sobre,
-section.portfolio {
-    background-color: var(--cor-fundo);
-    transition: background-color 0.3s;
-}
-
-.txt-topo-site h1 span,
-.txt-sobre h2 span {
-    color: var(--cor-marrom);
-}
-
-.sobre .titulo span {
-    background-color: var(--cor-marrom);
-}
-
-.menu-desktop a:hover {
-    color: var(--cor-marrom-hover);
-}
-
-.btn-custom,
-.btn-social button {
-    background-color: var(--cor-marrom);
-}
-
-.btn-custom:hover,
-.btn-social button:hover {
-    background-color: var(--cor-marrom-hover);
-}
-
-.img-port {
-    background-color: var(--cor-card);
-    border-color: var(--cor-borda);
-}
-
-footer {
-    background-color: var(--cor-footer);
-}
-
-footer .titulonome h3 {
-    color: var(--cor-texto-footer);
-}
-
-footer .titulonome p {
-    color: var(--cor-texto-suave);
-}
-
-.contatos-footer span {
-    color: var(--cor-marrom);
-}
-
-.contatos-footer a,
-.contatos-footer button {
-    color: var(--cor-texto-footer);
-}
-
-.contatos-footer a:hover,
-.contatos-footer button:hover {
-    color: var(--cor-marrom);
-}
-
-#mensagem-copiado {
-    color: var(--cor-marrom);
-}
+} 
 
 /* Botão de trocar tema */
 .botao-tema {
     background-color: var(--cor-marrom);
-    color: #fff;
+    color: var(--cor-texto-footer);
     border: none;
     padding: 10px 18px;
     border-radius: 15px;
-    font-size: 14px;
+    font-size: var(--fs-sm);
     font-weight: 700;
     cursor: pointer;
     transition: 0.3s;
@@ -654,12 +606,17 @@ button:focus-visible {
 /* ANIMAÇÃO DE ENTRADA DAS SEÇÕES */
 
 .animar-section {
-    opacity: 0;
-    transform: translateY(40px);
+    opacity: 1;
+    transform: translateY(0);
     transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.animar-section.aparecer {
+.animar-section.animacao-pronta {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.animar-section.animacao-pronta.aparecer {
     opacity: 1;
     transform: translateY(0);
 }
@@ -676,11 +633,11 @@ button:focus-visible {
 .botao-menu {
     display: none;
     background-color: var(--cor-marrom);
-    color: #fff;
+    color: var(--cor-texto-footer);
     border: none;
     padding: 9px 14px;
     border-radius: 12px;
-    font-size: 22px;
+    font-size: var(--fs-lg);
     font-weight: 700;
     cursor: pointer;
 }
@@ -712,7 +669,7 @@ button:focus-visible {
     }
 
     .logo a {
-        font-size: 15px;
+    font-size: var(--fs-sm);
         line-height: 1.1;
     }
 
@@ -727,13 +684,14 @@ button:focus-visible {
 
     .botao-tema {
         padding: 8px 10px;
-        font-size: 12px;
+        font-size: var(--fs-xs);
         border-radius: 10px;
         white-space: nowrap;
     }
 
     .botao-menu {
         display: block;
+        font-size: var(--fs-lg);
     }
 
     .menu-mobile {
@@ -760,7 +718,7 @@ button:focus-visible {
         color: var(--cor-texto);
         text-decoration: none;
         font-weight: 700;
-        font-size: 16px;
+        font-size: var(--fs-base);
         padding: 8px 0;
     }
 
@@ -769,20 +727,20 @@ button:focus-visible {
     }
 
     .txt-topo-site h1 {
-        font-size: 32px;
+        font-size: var(--fs-xl);
         letter-spacing: 5px;
         line-height: 1.35;
     }
 
     .responsive-text {
-        font-size: 18px;
+        font-size: var(--fs-md);
         line-height: 1.35;
         max-width: 320px;
         margin: 0 auto 38px;
     }
 
     .btn-custom {
-        font-size: 18px;
+        font-size: var(--fs-md);
         padding: 11px 38px;
     }
 
@@ -804,7 +762,7 @@ button:focus-visible {
     }
 
     .sobre .titulo h2 {
-        font-size: 32px;
+        font-size: var(--fs-xl);
         letter-spacing: 5px;
         text-align: center;
     }
@@ -834,19 +792,27 @@ button:focus-visible {
         text-align: center;
     }
 
-    .txt-sobre h2 {
-        font-size: 26px;
+    .txt-sobre h3 {
+        font-size: var(--fs-overlay);
         line-height: 1.2;
         text-align: center;
         margin-bottom: 25px;
     }
 
     .txt-sobre p {
-        font-size: 16px;
+        font-size: var(--fs-base);
         line-height: 1.6;
         text-align: left;
         margin-bottom: 18px;
     }
+    .habilidades h4 {
+    text-align: center;
+    font-size: var(--fs-base);
+}
+
+.habilidades ul {
+    justify-content: center;
+}
 
     .btn-social {
         justify-content: center;
@@ -855,7 +821,62 @@ button:focus-visible {
     }
 
     .btn-social button {
-        font-size: 15px;
+        font-size: var(--fs-sm);
         padding: 9px 18px;
     }
+}
+
+/* Em celular muito pequeno, tipo 360px ou menos, o título tem menos chance de quebrar feio na tela.*/
+@media screen and (max-width: 380px) {
+    .txt-topo-site h1 {
+        font-size: var(--fs-overlay);
+        letter-spacing: 3px;
+    }
+}
+
+
+/* posicao do video do coldplay */
+.video {
+    padding: 80px 4%;
+    background-color: var(--cor-fundo);
+}
+
+.video .titulo {
+    text-align: center;
+   font-size: var(--fs-xl);
+    color: var(--cor-texto);
+    margin-bottom: 25px;
+}
+
+.txt-video {
+    max-width: 720px;
+    margin: 0 auto 30px;
+    text-align: center;
+   font-size: var(--fs-md);
+    line-height: 1.6;
+    color: var(--cor-texto);
+}
+
+/* posição do vídeo do Coldplay */
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 18px;
+}
+.video-wrapper video {
+    width: 100%;
+    height: 100%;
+    border-radius: 18px;
+    object-fit: cover;
 }

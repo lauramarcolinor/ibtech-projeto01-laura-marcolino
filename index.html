@@ -12,7 +12,7 @@
     <meta property="og:description" content="Cartão de visita pessoal de Laura Marcolino.">
     <meta property="og:image" content="images/projeto1.png">
 
-<link rel="icon" href="images/logo png.png">
+<link rel="icon" href="images/logopng.png">
 
 <!-- pra salvar e co -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,7 +33,7 @@
         <!-- O body será dividido em 3 partes, header, main e footer -->
         <div class="interface">
             <div class="logo">
-                <img src="images/logo png.png" alt="Logo LM">
+                <img src="images/logopng.png" alt="Logo LM">
                 <p><a href="#home">LAURA MARCOLINO</a></p>
                 <!-- funcao que serve pra logo no header no caso -->
             </div> <!-- fechamento div logo-->
@@ -43,6 +43,7 @@
         <ul>
             <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+            <li class="nav-item"><a class="nav-link" href="#video">Vídeo</a></li>
             <li class="nav-item"><a class="nav-link" href="#projetos">Projetos</a></li>
             <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
         </ul>
@@ -59,9 +60,10 @@
     </button>
 </div>
 
-<div id="menu-mobile" class="menu-mobile"> <!-- menu mobile é pra se adaptar no celular-->
+<div id="menu-mobile" class="menu-mobile">
     <a href="#home">Home</a>
     <a href="#sobre">Sobre</a>
+    <a href="#video">Vídeo</a>
     <a href="#projetos">Projetos</a>
     <a href="#contato">Contato</a>
 </div>
@@ -77,10 +79,8 @@
                         <p class="responsive-text">
                             Estudante de Engenharia de Software, aprendendo a transformar ideias em experiências digitais.
                         </p>
-                        <div class="btn">
-                            <a href="#projetos">
-                                <button class="btn-custom">Projetos</button> <!-- coloca botao para ir direto para a aba projetos -->
-                            </a>
+                       <div class="btn">
+      <a href="#projetos" class="btn-custom">Projetos</a>
                         </div>
                     </div><!--txt-topo-site-->
                 </div><!--flex-->
@@ -96,11 +96,11 @@
 
                 <div class="flex">
                     <div class="foto-sobre">
-                        <img src="images/avatas 2.png" alt="Avatar Laura">
+                       <img src="images/avatas2.png" alt="Avatar Laura" loading="lazy">
                     </div><!--foto-sobre-->
 
                     <div class="txt-sobre">
-                        <h2>MUITO PRAZER, <span><br>SOU LAURA MARCOLINO.</span></h2>
+                       <h3>MUITO PRAZER,<span>SOU LAURA MARCOLINO.</span></h3>
 
                         <p>
                             Sou graduanda em Engenharia de Software no IBMEC BH desde 2026. Meu interesse pela programação começou em 2025, por influência do meu irmão, que me apresentou esse universo. A partir disso, comecei a estudar, gostei da área e decidi seguir esse caminho profissionalmente por meio da graduação.
@@ -117,6 +117,17 @@
                         <p>
                             Também faço parte da IBTech, onde tenho aprendido muito sobre cooperação em grupo, desenvolvimento de projetos e troca de conhecimentos com outros estudantes. Busco crescer constantemente na área de tecnologia, unindo aprendizado técnico, criatividade e colaboração.
                         </p>
+
+            <div class="habilidades">
+         <h4>Habilidades e interesses</h4>
+              <ul>
+        <li>HTML & CSS</li>
+        <li>Python (iniciante)</li>
+        <li>Linguagem C (básico)</li>
+        <li>Inglês fluente</li>
+        <li>Trabalho em equipe</li>
+             </ul>
+        </div>
 
                    <div class="btn-social"> 
     <a href="https://www.instagram.com/lauramarcolinor/" target="_blank" rel="noopener noreferrer">
@@ -135,6 +146,28 @@
 </div><!--flex-->
 </div><!--interface-->
 </section><!--sobre-->
+
+<!-- secao do video -->
+<section class="video animar-section" id="video">
+    <div class="interface">
+        <h2 class="titulo">VIDEO</h2>
+
+        <p class="txt-video">
+            Escolhi esse vídeo porque ele representa minha fase de aprendizado, crescimento e construção da minha trajetória.
+        </p>
+
+        <div class="video-wrapper">
+            <iframe
+                src="https://www.youtube.com/embed/_-bEF4fSsAc"
+                title="Vídeo escolhido por Laura"
+                frameborder="0"
+                allow="clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+</section>
 
 <section class="portfolio animar-section" id="projetos">
 
