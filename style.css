@@ -663,3 +663,199 @@ button:focus-visible {
     opacity: 1;
     transform: translateY(0);
 }
+
+
+/* MENU MOBILE */
+
+.acoes-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.botao-menu {
+    display: none;
+    background-color: var(--cor-marrom);
+    color: #fff;
+    border: none;
+    padding: 9px 14px;
+    border-radius: 12px;
+    font-size: 22px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.menu-mobile {
+    display: none;
+}
+
+/* ajuste mobile */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 14px 0;
+        position: relative;
+        z-index: 1000;
+    }
+
+    header .interface {
+        padding: 0 18px;
+        gap: 12px;
+    }
+
+    .logo {
+        gap: 8px;
+    }
+
+    .logo img {
+        width: 42px;
+        height: 42px;
+    }
+
+    .logo a {
+        font-size: 15px;
+        line-height: 1.1;
+    }
+
+    .menu-desktop {
+        display: none;
+    }
+
+    .acoes-header {
+        margin-left: auto;
+        gap: 8px;
+    }
+
+    .botao-tema {
+        padding: 8px 10px;
+        font-size: 12px;
+        border-radius: 10px;
+        white-space: nowrap;
+    }
+
+    .botao-menu {
+        display: block;
+    }
+
+    .menu-mobile {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 18px;
+        right: 18px;
+        background-color: var(--cor-header);
+        border: 2px solid var(--cor-marrom);
+        border-radius: 18px;
+        padding: 18px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+        z-index: 9999;
+    }
+
+    .menu-mobile.ativo {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .menu-mobile a {
+        color: var(--cor-texto);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 16px;
+        padding: 8px 0;
+    }
+
+    .menu-mobile a:hover {
+        color: var(--cor-marrom);
+    }
+
+    .txt-topo-site h1 {
+        font-size: 32px;
+        letter-spacing: 5px;
+        line-height: 1.35;
+    }
+
+    .responsive-text {
+        font-size: 18px;
+        line-height: 1.35;
+        max-width: 320px;
+        margin: 0 auto 38px;
+    }
+
+    .btn-custom {
+        font-size: 18px;
+        padding: 11px 38px;
+    }
+
+    .topo-site {
+        min-height: 520px;
+        padding-top: 75px;
+    }
+}
+
+/* AJUSTE MOBILE - SOBRE MIM */
+@media screen and (max-width: 768px) {
+    .sobre {
+        padding: 60px 0;
+        overflow: hidden;
+    }
+
+    .sobre .titulo {
+        margin-bottom: 40px;
+    }
+
+    .sobre .titulo h2 {
+        font-size: 32px;
+        letter-spacing: 5px;
+        text-align: center;
+    }
+
+    .sobre .flex {
+        flex-direction: column;
+        gap: 35px;
+        align-items: center;
+    }
+
+    .foto-sobre {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .foto-sobre img {
+        width: 220px;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 18px;
+    }
+
+    .txt-sobre {
+        max-width: 100%;
+        padding: 0 22px;
+        text-align: center;
+    }
+
+    .txt-sobre h2 {
+        font-size: 26px;
+        line-height: 1.2;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .txt-sobre p {
+        font-size: 16px;
+        line-height: 1.6;
+        text-align: left;
+        margin-bottom: 18px;
+    }
+
+    .btn-social {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .btn-social button {
+        font-size: 15px;
+        padding: 9px 18px;
+    }
+}

@@ -102,7 +102,42 @@ const observador = new IntersectionObserver(function (entradas) {
 secoesAnimadas.forEach(function (secao) {
     observador.observe(secao);
 });
+
+const botaoMenu = document.querySelector('#botao-menu');
+const menuMobile = document.querySelector('#menu-mobile');
+const linksMenuMobile = document.querySelectorAll('#menu-mobile a');
+
+if (botaoMenu && menuMobile) {
+    botaoMenu.addEventListener('click', function () {
+        menuMobile.classList.toggle('ativo');
+
+        if (menuMobile.classList.contains('ativo')) {
+            botaoMenu.textContent = '×';
+            botaoMenu.setAttribute('aria-label', 'Fechar menu');
+        } else {
+            botaoMenu.textContent = '☰';
+            botaoMenu.setAttribute('aria-label', 'Abrir menu');
+        }
+    });
+
+    linksMenuMobile.forEach(function (link) {
+        link.addEventListener('click', function () {
+            menuMobile.classList.remove('ativo');
+            botaoMenu.textContent = '☰';
+            botaoMenu.setAttribute('aria-label', 'Abrir menu');
+        });
+    });
+
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+            menuMobile.classList.remove('ativo');
+            botaoMenu.textContent = '☰';
+            botaoMenu.setAttribute('aria-label', 'Abrir menu');
+        }
+    });
+}
 /* pra fazer que o emial copiado */
 /*numero de estrelas e i e porcentagem de aparece e animacao e duracao das estrals espalha as estrelas pelo site inteiro: home, sobre, projetos, vídeo e footer.*/
 /* botao tema escuro*/
 /* animacoes de descer/rolagem*/
+/* menu mobile de java script */
